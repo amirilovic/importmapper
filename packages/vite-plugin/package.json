@@ -1,0 +1,32 @@
+{
+  "name": "@importmapper/vite-plugin",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*"
+  },
+  "scripts": {
+    "dev": "npm run build -- --emptyOutDir=false --watch",
+    "build": "vite build",
+    "test": "vitest",
+    "test:watch": "npm run test -- --watch",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-config-custom": "*",
+    "tsconfig-custom": "*",
+    "types-package-json": "^2.0.39",
+    "vite": "^4.0.1",
+    "vite-config-custom": "*",
+    "vitest": "^0.25.3"
+  },
+  "dependencies": {
+    "debug": "^4.3.4"
+  }
+}

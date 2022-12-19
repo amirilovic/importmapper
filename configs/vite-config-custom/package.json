@@ -1,0 +1,13 @@
+{
+  "name": "vite-config-custom",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^2.2.0",
+    "vite": "^3.2.4",
+    "vite-plugin-checker": "^0.5.1",
+    "vite-plugin-on-success": "^0.0.3"
+  }
+}

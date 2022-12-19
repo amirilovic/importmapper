@@ -1,0 +1,38 @@
+{
+  "name": "@importmapper/cli",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*"
+  },
+  "bin": {
+    "importmapper": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "npm run build -- --emptyOutDir=false --watch",
+    "build": "vite build",
+    "postbuild": "chmod +x ../../node_modules/.bin/importmapper",
+    "test": "vitest",
+    "test:watch": "npm run test -- --watch",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.7",
+    "@types/findup-sync": "^4.0.2",
+    "eslint": "^8.28.0",
+    "eslint-config-custom": "*",
+    "tsconfig-custom": "*",
+    "types-package-json": "^2.0.39",
+    "vite-config-custom": "*",
+    "vitest": "^0.25.3"
+  },
+  "dependencies": {
+    "debug": "^4.3.4",
+    "findup-sync": "^5.0.0"
+  }
+}

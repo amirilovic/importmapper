@@ -1,0 +1,29 @@
+{
+  "name": "importmapper",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "packages/*",
+    "configs/*",
+    "apps/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "turbo": "^1.4.6"
+  },
+  "dependencies": {
+    "@types/node": "^18.11.15",
+    "commander": "^9.4.1"
+  }
+}
