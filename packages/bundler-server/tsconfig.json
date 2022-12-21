@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "../server/dist",
+    "rootDir": "../server/src"
+  },
+  "exclude": ["../server/node_modules"],
+  "extends": "tsconfig-custom/base.json",
+  "include": ["../server/src"]
+}

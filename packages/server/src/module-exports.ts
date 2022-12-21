@@ -2,6 +2,7 @@ import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
 
+// eslint-disable-next-line no-useless-escape
 const identRegexp = /^[a-zA-Z_\$][a-zA-Z0-9_\$]*$/;
 
 const reservedWords = new Set([

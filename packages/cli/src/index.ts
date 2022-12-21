@@ -62,66 +62,6 @@ function saveImportMap({
   fs.writeFileSync(fullPath, JSON.stringify(importMap, null, 2), "utf-8");
 }
 
-function addScopes({
-  importMap,
-  packageName,
-}: {
-  importMap: ImportMap;
-  packageName: string;
-}) {
-  debug("adding", packageName);
-
-  const globalScopeUrl = getScopeUrl();
-  const { pkg, pkgPath } = getPackageJson(packageName);
-  const packageScopeUrl = `${getImportUrl({
-    packageName,
-    version: pkg.version,
-  })}/`;
-
-  const dependencies = [
-    ...Object.keys(pkg.dependencies ?? {}),
-    ...Object.keys(pkg.peerDependencies ?? {}),
-  ].filter(filterOutDevDependencies);
-
-  debug("dependencies", dependencies);
-
-  for (const dependencyName of dependencies) {
-    if (importMap.scopes[globalScopeUrl][dependencyName]) {
-      continue;
-    }
-
-    const {
-      pkg: { version: packageDependencyVersion },
-    } = getPackageJson(dependencyName, path.dirname(pkgPath));
-
-    const {
-      pkg: { version: globalDependencyVersion },
-    } = getPackageJson(dependencyName);
-
-    const importUrl = getImportUrl({
-      packageName: dependencyName,
-      version: packageDependencyVersion,
-    });
-
-    const dependencyScopeUrl =
-      globalDependencyVersion === packageDependencyVersion
-        ? globalScopeUrl
-        : packageScopeUrl;
-
-    if (!importMap.scopes[dependencyScopeUrl]) {
-      importMap.scopes[dependencyScopeUrl] = {};
-    }
-
-    importMap.scopes[dependencyScopeUrl][dependencyName] = importUrl;
-
-    importMap.scopes[dependencyScopeUrl][
-      `${dependencyName}/`
-    ] = `${importUrl}/`;
-
-    addScopes({ importMap, packageName: dependencyName });
-  }
-}
-
 function getPackageJsonPath(packageName: string, currentPath: string): string {
   if (!path.isAbsolute(currentPath)) {
     throw new Error("Use absolute path");
@@ -203,6 +143,8 @@ function add({
   filePath: string;
   packageName: string;
 }) {
+  debug(`adding ${packageName} in ${filePath}...`);
+
   ensureImportMapFile({ filePath });
   const importMap = loadImportMap({ filePath });
 
