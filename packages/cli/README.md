@@ -1,2 +1,3 @@
 TODO:
-- [ ] cli should bundle all dependencies but add to ?external all imports
+- [x] cli should bundle all dependencies except the ones defined in imports
+- [ ] cli should have config to put peer dependencies in scopes
