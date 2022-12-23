@@ -5,6 +5,8 @@ import { ErrorPage } from "./pages/error-page";
 import { HomePage } from "./pages/home-page";
 import { ChakraProvider } from "@chakra-ui/react";
 
+// test deploy affected
+
 const router = createBrowserRouter([
   {
     path: `${import.meta.env.BASE_URL}/`,
