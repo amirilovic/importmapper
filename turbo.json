@@ -13,7 +13,8 @@
       "cache": false
     },
     "deploy": {
-      "cache": false
+      "cache": false,
+      "dependsOn": ["^build"]
     }
   }
 }
