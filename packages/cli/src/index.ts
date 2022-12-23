@@ -251,11 +251,11 @@ function getImportUrl({
   packageName: string;
   version: string;
 }) {
-  return `http://localhost:3000/npm/${packageName}@${version}`;
+  return `https://importmapper-server.fly.dev/npm/${packageName}@${version}`;
 }
 
 function getScopeUrl() {
-  return "http://localhost:3000/npm/";
+  return "https://importmapper-server.fly.dev/npm/";
 }
 
 program

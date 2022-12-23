@@ -8,5 +8,10 @@ export default defineConfig({
   build: {
     outDir: "dist/unbundled",
   },
-  plugins: [react(), importMapper({ preloadModules: ["react", "react-dom"] })],
+  plugins: [
+    react(),
+    importMapper({
+      preloadModules: ["react", "react-dom", "@chakra-ui/react"],
+    }),
+  ],
 });

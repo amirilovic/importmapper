@@ -1,13 +1,13 @@
 {
   "imports": {
-    "@chakra-ui/react": "http://localhost:3000/npm/@chakra-ui/react@2.4.3?external=react&external=react-dom",
-    "@chakra-ui/react/": "http://localhost:3000/npm/@chakra-ui/react@2.4.3/?external=react&external=react-dom",
-    "react": "http://localhost:3000/npm/react@18.2.0",
-    "react-dom": "http://localhost:3000/npm/react-dom@18.2.0?external=react",
-    "react-dom/": "http://localhost:3000/npm/react-dom@18.2.0/?external=react",
-    "react/": "http://localhost:3000/npm/react@18.2.0/"
+    "@chakra-ui/react": "https://importmapper-server.fly.dev/npm/@chakra-ui/react@2.4.3?external=react&external=react-dom",
+    "@chakra-ui/react/": "https://importmapper-server.fly.dev/npm/@chakra-ui/react@2.4.3/?external=react&external=react-dom",
+    "react": "https://importmapper-server.fly.dev/npm/react@18.2.0",
+    "react-dom": "https://importmapper-server.fly.dev/npm/react-dom@18.2.0?external=react",
+    "react-dom/": "https://importmapper-server.fly.dev/npm/react-dom@18.2.0/?external=react",
+    "react/": "https://importmapper-server.fly.dev/npm/react@18.2.0/"
   },
   "scopes": {
-    "http://localhost:3000/npm/": {}
+    "https://importmapper-server.fly.dev/npm/": {}
   }
 }

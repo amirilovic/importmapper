@@ -21,3 +21,6 @@ coverage
 .turbo
 dist
 .vercel
+
+.npm
+.esm

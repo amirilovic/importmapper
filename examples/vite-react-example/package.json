@@ -9,7 +9,8 @@
     "build:bundled": "tsc && vite -c vite.bundled.config.ts build",
     "build": "run-p build:unbundled build:bundled",
     "preview": "vite preview",
-    "postinstall": "npx importmapper sync"
+    "postinstall": "npx importmapper sync",
+    "deploy": "cd ../.. && flyctl deploy --config examples/vite-react-example/fly.toml --dockerfile examples/vite-react-example/Dockerfile"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.13",

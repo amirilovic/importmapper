@@ -1,0 +1,6 @@
+# flyctl launch added from .gitignore
+**/.npm
+**/.esm
+fly.toml
+# dependencies
+node_modules/
