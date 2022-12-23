@@ -9,6 +9,7 @@
     "build:bundled": "tsc && vite -c vite.bundled.config.ts build",
     "build": "run-p build:unbundled build:bundled",
     "preview": "vite preview",
+    "postinstall1": "npx importmapper sync",
     "deploy": "cd ../.. && flyctl deploy --config examples/vite-react-example/fly.toml --dockerfile examples/vite-react-example/Dockerfile"
   },
   "dependencies": {
