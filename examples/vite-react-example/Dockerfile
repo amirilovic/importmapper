@@ -1,2 +1,2 @@
 FROM pierrezemb/gostatic
-COPY ./dist/ /srv/http/
+COPY examples/vite-react-example/dist/ /srv/http/
