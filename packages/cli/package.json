@@ -19,8 +19,7 @@
     "postbuild": "chmod +x ../../node_modules/.bin/importmapper",
     "test": "vitest",
     "test:watch": "npm run test -- --watch",
-    "lint": "eslint .",
-    "postinstall": "npm run build"
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@types/debug": "^4.1.7",
@@ -34,6 +33,7 @@
   },
   "dependencies": {
     "debug": "^4.3.4",
-    "findup-sync": "^5.0.0"
+    "findup-sync": "^5.0.0",
+    "commander": "^9.4.1"
   }
 }
