@@ -19,7 +19,8 @@
     "postbuild": "chmod +x ../../node_modules/.bin/importmapper",
     "test": "vitest",
     "test:watch": "npm run test -- --watch",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "npm run build"
   },
   "devDependencies": {
     "@types/debug": "^4.1.7",
