@@ -8,6 +8,6 @@
     "react/": "https://importmapper-server.fly.dev/npm/react@18.2.0/"
   },
   "scopes": {
-    "https://importmapper-server.fly.dev/npm/": {}
+    "https://importmapper-server.fly.dev/npm": {}
   }
 }

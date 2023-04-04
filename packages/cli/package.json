@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "npm run build -- --emptyOutDir=false --watch",
     "build": "vite build",
-    "postbuild1": "chmod +x ../../node_modules/.bin/importmapper",
+    "postbuild": "chmod +x ../../node_modules/.bin/importmapper",
     "test": "vitest",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint ."

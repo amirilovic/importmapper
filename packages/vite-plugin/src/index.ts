@@ -4,6 +4,7 @@ import type { ConfigEnv, HtmlTagDescriptor, Plugin } from "vite";
 type PluginOptions = {
   importMapPath?: string;
   preloadModules?: string[];
+  serverUrl?: string;
 };
 
 function plugin(options?: PluginOptions): Plugin[] {
@@ -12,6 +13,7 @@ function plugin(options?: PluginOptions): Plugin[] {
   const importMapPath = options?.importMapPath ?? "importmap.json";
   const importMap = JSON.parse(readFileSync(importMapPath, "utf-8"));
   const preloadModules = options?.preloadModules ?? [];
+  const serverUrl = options?.serverUrl ?? "https://importmapper-server.fly.dev";
 
   return [
     {
@@ -57,7 +59,7 @@ function plugin(options?: PluginOptions): Plugin[] {
               tag: "script",
               attrs: {
                 type: "module",
-                src: "https://importmapper-server.fly.dev/npm/es-module-shims@1.6.2",
+                src: `${serverUrl}/npm/es-module-shims@1.6.2`,
                 async: !(env.command === "serve"),
               },
               injectTo: "head-prepend",
@@ -67,7 +69,7 @@ function plugin(options?: PluginOptions): Plugin[] {
           tags.unshift({
             tag: "script",
             attrs: {
-              type: "importmap",
+              type: "importmap-shim",
             },
             children: JSON.stringify(importMap, null, 2),
             injectTo: "head-prepend",
@@ -81,14 +83,14 @@ function plugin(options?: PluginOptions): Plugin[] {
             tags.push({
               tag: "link",
               attrs: {
-                rel: "modulepreload",
+                rel: "modulepreload-shim",
                 href: importMap.imports[preloadModule],
               },
             });
           }
 
           return {
-            html,
+            html: html.replace(/type="module"/g, 'type="module-shim"'),
             tags,
           };
         },

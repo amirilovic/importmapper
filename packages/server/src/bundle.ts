@@ -106,11 +106,18 @@ function addExternalImports(external: string[], outputFile: string) {
   if (!external.length) {
     return;
   }
+
+  const code = fs.readFileSync(outputFile, "utf-8");
+
   const sb: string[] = [];
 
   for (let i = 0; i < external.length; i++) {
     const dependency = external.at(i);
-    sb.push(`import import${i} from '${dependency}'`);
+
+    // if really used
+    if (code.indexOf(`__require("${dependency}")`)) {
+      sb.push(`import import${i} from '${dependency}'`);
+    }
   }
 
   sb.push("const requireCache = {");

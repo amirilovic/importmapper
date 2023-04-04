@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite -c vite.unbundled.config.ts",
     "build:unbundled": "tsc && vite -c vite.unbundled.config.ts build",
     "build:bundled": "tsc && vite -c vite.bundled.config.ts build",
     "build": "run-p build:unbundled build:bundled",
     "preview": "vite preview",
-    "postinstall1": "npx importmapper sync",
+    "postinstall": "npx importmapper sync",
     "deploy": "cd ../.. && flyctl deploy --config examples/vite-react-example/fly.toml --dockerfile examples/vite-react-example/Dockerfile"
   },
   "dependencies": {
